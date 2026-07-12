@@ -5,7 +5,7 @@ human-readable report, using a **local** LLM (Llama-3.2-3B-Instruct) served by
 **llama.cpp**. Nothing leaves the machine — no internet call, no external API.
 
 This doc covers two things: **(1)** building/running llama.cpp itself as your
-local "AI engine" (since Ollama isn't available on your machine), and
+local "AI engine", and
 **(2)** running and calling the Python app that generates the reports.
 
 ---
@@ -63,11 +63,10 @@ always get a usable report either way.
 
 ---
 
-## 3. Part A — Build llama.cpp (this replaces Ollama)
+## 3. Part A — Build llama.cpp
 
-Ollama is just a friendly wrapper around the same underlying engine
-(`llama.cpp`/`ggml`) — building llama.cpp yourself gets you the same local
-model-running capability without needing Ollama at all.
+Its just a friendly wrapper around the same underlying engine
+(`llama.cpp`/`ggml`) — building llama.cpp yourself gets you the local AI.
 
 **You need:** `git`, `cmake`, and a C/C++ compiler. On Ubuntu/Debian:
 
@@ -125,7 +124,7 @@ Put it somewhere like `llama.cpp/models/Llama-3.2-3B-Instruct-Q4_K_M.gguf`.
 
 ---
 
-## 5. Part C — Quick CLI test (the "ollama run" equivalent)
+## 5. Part C — Quick CLI test
 
 Before wiring anything up, confirm the model actually runs, straight from
 the terminal:
@@ -310,11 +309,3 @@ against the actual numbers rather than having to trust it blindly.
 | `404 File not found` from `/analyze` | Check the `path` is correct relative to wherever you launched `python main.py` from |
 | Report says "auto-generated fallback" | llama.cpp server wasn't reachable at the time — the facts are still correct, you just don't get the AI-written prose |
 
----
-
-## 11. If your real JSON differs from `sample_telemetry.json`
-
-`models.py` is intentionally lenient (`extra="allow"`) — unknown fields
-are kept, not rejected. If a *required* field is missing or a type doesn't
-match (e.g. `noOfSamples` isn't a number), you'll get a `422` with the exact
-field name, so it's easy to adjust `models.py` to match your real data.
