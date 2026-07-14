@@ -1,0 +1,72 @@
+{
+  "logEntry": {
+    "EventDetails": [
+      {
+        "Action": "Event1test.tst",
+        "Enabled": true,
+        "EventCondition": "PID(\"PWR05013\")<70",
+        "EventDescription": "Test Event 1",
+        "EventId": "EV001",
+        "EventName": "Event 1",
+        "GuardCondition": "PID(\"AOC00811\")==\"ON\"",
+        "RetriggeringTime(ms)": 60000,
+        "actionSts": "NOT_INITIATED",
+        "curNoOfSamplesAvailable": 5,
+        "currentlyMonitored": true,
+        "evaluationRestartCountDownInMs": 0,
+        "eventConditionPidValues": [],
+        "eventConditionSts": [true, true, true, true, true],
+        "eventMonitoringHealth": "MON OK",
+        "guardConditionPidValues": [],
+        "guardConditionSts": [false, false, false, false, false],
+        "noOfSamples": 5,
+        "validEvent": true
+      },
+      {
+        "Action": "Event2test.tst",
+        "Enabled": true,
+        "EventCondition": "PID(\"PWR05013\")>70 && PID(\"PWR05001\")>30",
+        "EventDescription": "Test Event 2",
+        "EventId": "EV002",
+        "EventName": "Event 2",
+        "GuardCondition": "PID(\"AOC00811\")==\"OFF\"",
+        "RetriggeringTime(ms)": 60000,
+        "actionSts": "NOT_INITIATED",
+        "curNoOfSamplesAvailable": 5,
+        "currentlyMonitored": true,
+        "evaluationRestartCountDownInMs": 0,
+        "eventConditionPidValues": [],
+        "eventConditionSts": [false, false, false, false, false],
+        "eventMonitoringHealth": "MON_OK",
+        "guardConditionPidValues": [],
+        "guardConditionSts": [true, true, true, true, true],
+        "noOfSamples": 6,
+        "validEvent": true
+      },
+      {
+        "Action": "Event3test.tst",
+        "Enabled": true,
+        "EventCondition": "PID(\"PWR05013\")<70 || PID(\"PWR05001\")>100",
+        "EventDescription": "Test Event 3",
+        "EventId": "EV003",
+        "EventName": "Event 3",
+        "GuardCondition": "PID(\"TCP03190\")==\"NO_ERR\"",
+        "RetriggeringTime(ms)": 60000,
+        "actionSts": "NOT_INITIATED",
+        "curNoOfSamplesAvailable": 5,
+        "currentlyMonitored": true,
+        "evaluationRestartCountDownInMs": 0,
+        "eventConditionPidValues": [],
+        "eventConditionSts": [true, true, true, true, true],
+        "eventMonitoringHealth": "MON_OK",
+        "guardConditionPidValues": [],
+        "guardConditionSts": [true, true, true, true, true],
+        "noOfSamples": 7,
+        "validEvent": true
+      }
+    ],
+    "logType": "EventSnapShot",
+    "process": "EventBG",
+    "timetag": "2025-10-06 03:54:50.413"
+  }
+}
