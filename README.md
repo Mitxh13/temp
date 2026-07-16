@@ -172,6 +172,8 @@ Leave this running — it's the "AI engine" the Python app calls into.
 ## 7. Part E — Install Python deps & configure
 
 ```bash
+python3 -m venv venv
+source venv/bin/activate
 pip install -r requirements.txt
 cp .env.example .env
 ```
