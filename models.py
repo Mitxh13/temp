@@ -80,6 +80,12 @@ class LogEntry(BaseModel):
     model_config = ConfigDict(populate_by_name=True, extra="allow")
 
     event_details: List[EventDetail] = Field(alias="EventDetails")
+    # Revealed by the full log capture (previously the photo cut off before
+    # these) -- metadata about the snapshot itself, sitting alongside
+    # EventDetails rather than inside each event.
+    log_type: Optional[str] = Field(default=None, alias="logType")
+    process: Optional[str] = Field(default=None, alias="process")
+    timetag: Optional[str] = Field(default=None, alias="timetag")
 
 
 class TelemetryPayload(BaseModel):
